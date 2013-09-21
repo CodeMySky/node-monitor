@@ -1,0 +1,47 @@
+Node-monitor
+==================
+Crawler part
+------------------
+### Caution
+- Configure self.__cnf before use.
+- Not a bit output until fatal error. (If you want to debug, please add debug collector and flush it when break. Explicitly add sys.exit(). At least that's what I do. Any trouble? **Go for leon!**)
+
+### Todo
+- Add it to cron.
+- Make it more robust
+- More test
+
+Alerter part
+------------------
+### Caution
+- Use redis to receive info. Channel name is ip.
+- You may simply rewrite it all over.
+
+### Todo
+- A lot to do...
+
+Site part
+------------------
+### Caution
+- Use port 80
+- ALWAYS escape params before making a query.
+- views
+    - header.ejs should be included in every page to form the banner.Added just after body label .
+    - footer.ejs include footer.js. Get view list from server.
+    - dba.ejs is a page for viewing, modifying datbase. It dynamically pull all info grom server.
+    - freeChart.ejs is a page for vewing history. It use [DaterangePicker](https://github.com/dangrossman/bootstrap-daterangepicker "bootstrap-daterangepicker") and [Flotr2](http://www.humblesoftware.com/flotr2/ "Flotr2") and [Typeahead](https://github.com/twitter/typeahead.js "Typeahead") as plug-in
+- routes
+    - config.json contains info about mysql server
+    - connection.js makes a mysql connection. By including it, you can use mysql directly.
+    - dba.js relate with modifying db, no get here.
+    - dealError.js is a small util for sending error msg.
+    - gatherer.js gathers info collected by crawer and store them.
+    - index.js put all modules together.
+    - viewer.js accept all get db info request, may cause a info leak or sql attack.
+- public
+    - Use bootstrap & jquery
+
+### Todo
+- try-catch can't catch async error, try domain.
+- View can just contain one group and one chart. It supposed to have more than one chart.
+

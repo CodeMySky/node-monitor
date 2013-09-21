@@ -1,0 +1,6 @@
+{
+	"host"     : "10.16.2.20",
+    "user"     : "monitor",
+    "password" : "3yFG@m!",
+    "database" : "monitor"
+}

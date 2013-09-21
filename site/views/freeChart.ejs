@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/typeahead.js-bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/daterangepicker-bs2.css">
+
+    <style type="text/css">
+      .tt-suggestions{
+        font-size: 14px !important;
+      }
+      h4{
+        margin: 0 20px 5px 20px;
+        padding: 3px 0;
+        border-bottom: 1px solid #ccc;
+      }
+      .margin0{
+        margin:0;
+      }
+      .busy{
+        cursor: progress !important;
+      }
+    </style>
+  </head>
+  <body>
+    <% include header.ejs %>
+    <div class="container">
+      <form>
+        <div class="input-prepend">
+          <span class="add-on">Target</span>
+          <input class="span3" id="target" type="text" placeholder="IP/Group">
+        </div>
+        <div class="input-prepend">
+          <span class="add-on">Field&nbsp</span>
+          <input class="span3" id="field" type="text" placeholder="Item/Chart">
+        </div>
+        <div class='input-append margin0'>
+          <div id="reportrange" class="input-prepend">
+            <span class="add-on">During</span>
+            <input id="timefield" class="span3" type="text"></input>
+          </div>
+          <button class="btn " type="button" id="submit">&nbspSearch&nbsp</button>
+        </div>
+      </form>
+      <div class="alert alert-error hide">
+      Something goes wrong!
+      </div>
+      <div id="chartList"></div>
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/flotr2.min.js"></script>
+    <script src="js/typeahead.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/lang/zh-cn.js"></script>
+    <script src="js/daterangepicker.js"></script>
+    <script src="js/freeChart.js"></script>
+    <script>
+      $(document).ready(function(){
+        var c = Chart.createNew();
+        c.init();
+      })
+    </script>
+    <% include footer.ejs %>
+  </body>
+<html>
